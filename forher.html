@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Update the filename below if it's different */
+            background: url('pixel-jeff-galaxy-far-far-away.gif') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        /* Dark overlay to make the GIF pop and text readable */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 20px;
+            width: 85%;
+            max-width: 500px;
+        }
+
+        /* The Button */
+        #startBtn {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            background-color: #ff00ff;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 15px #ff00ff;
+            transition: transform 0.3s ease;
+        }
+
+        #startBtn:hover {
+            transform: scale(1.1);
+        }
+
+        /* The Letter Box */
+        #letter {
+            display: none;
+            background: rgba(20, 0, 40, 0.85); /* Glass effect */
+            backdrop-filter: blur(5px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 0, 255, 0.3);
+            color: #e0e0e0;
+            line-height: 1.6;
+            animation: fadeIn 2s ease-in-out;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 0;
+        }
+
+        /* Responsive adjustments for small phones */
+        @media (max-width: 480px) {
+            p { font-size: 1rem; }
+            #startBtn { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="overlay"></div>
+
+    <div class="container">
+        <audio id="bgMusic" loop>
+            <source src="foreverwithme.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <button id="startBtn">My Bawi</button>
+
+        <div id="letter">
+            <p>"I want to wander through this massive, messy universe with you, from the brightest stars to the quietest, most forgotten corners of the map. There’s something beautiful about the idea of being 'lonely' together—tuning out the rest of the world until it’s just the two of us in our own private orbit. Whether we’re chasing big dreams or just sitting in the heavy silence of a quiet night, I don't ever want to explore the unknown with anyone else but you. As long as I’m lost with you, I’ll always feel like I’m exactly where I need to be."</p>
+        </div>
+    </div>
+
+    <script>
+        const btn = document.getElementById('startBtn');
+        const letter = document.getElementById('letter');
+        const music = document.getElementById('bgMusic');
+
+        btn.addEventListener('click', () => {
+            // Play music
+            music.play();
+            // Hide button
+            btn.style.display = 'none';
+            // Show letter
+            letter.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
